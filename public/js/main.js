@@ -1,9 +1,17 @@
 const video = document.getElementById("video");
 const fixed = document.getElementById("fixed");
-const title = document.getElementById("title");
+const title = document.getElementById("titleText");
+const scheduleT = document.getElementById("schedule");
 var schedule;
 var currentVideoNumberId;
 var videoCount;
+var scheduleHTML = `
+<tr>
+    <th>Title</th>
+    <th>Clip Number</th>
+    <th>Unique Id</th>
+</tr>`
+
 fetch('/public/file/schedule.json', {
         method: 'GET'
     })
@@ -14,6 +22,7 @@ fetch('/public/file/schedule.json', {
         schedule = json
         videoCount = schedule.length
 
+        genSchedule()
         begin()
     });
 
@@ -47,11 +56,6 @@ function begin() {
         if (player.ended) {
             next()
         }
-        if (player.paused) {
-            fixed.style.display = 'block'
-        } else {
-            fixed.style.display = 'none'
-        }
     }, 1000)
 }
 
@@ -72,4 +76,17 @@ function next() {
     }
 
     currentVideoNumberId = localStorage.getItem('current')
+}
+
+function genSchedule() {
+    for (i = 0; i < schedule.length; i++) {
+        scheduleHTML = scheduleHTML + `
+<tr>
+    <td>${schedule[i].title}</td>
+    <td>${schedule[i].numberId}</td>
+    <td>${schedule[i].uniqueId}</td>
+</tr>`
+    }
+
+    scheduleT.innerHTML = scheduleHTML
 }

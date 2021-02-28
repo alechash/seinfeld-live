@@ -2,6 +2,7 @@ body {
     margin: 0;
     overflow: hidden;
     background: black;
+    scroll-behavior: smooth;
 }
 
 #video {
@@ -26,4 +27,22 @@ body {
     font-size: 20px;
     color: #00b3ff;
     font-family: helvetica, arial;
+}
+
+#bottom {
+    padding: 10px;
+    margin: 0;
+    font-size: 20px;
+    color: white;
+    font-family: helvetica, arial;
+}
+
+a {
+    color: white;
+    text-decoration: underline
+}
+
+th,
+td {
+    border: 1px solid rgb(52, 52, 52)
 }
