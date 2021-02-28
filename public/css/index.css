@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+}
+
+#video {
+    width: 100vw;
+    height: 100vh;
+}
+
+#source {
+    top: 0;
+}
+
+#fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+#title {
+    padding: 10px;
+    margin: 0;
+    font-size: 20px;
+    color: #00b3ff;
+    font-family: helvetica, arial;
+}
